@@ -6,18 +6,7 @@ import axios from 'axios'
 
 
 export default function LoginScreen() {
-/*
-  useEffect( ()=>{
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-  .then(function (response) {
-    console.log(response)
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-    
-  })
-  */
+
   const[userName , setName] =  useState("")
   const[password , setPassword] =  useState("")
 
@@ -25,7 +14,7 @@ export default function LoginScreen() {
     console.log(userName + " " +password);
     axios({
       method:'post',
-      url: 'https://ca012163c724.ngrok.io/log',   // Pass url before log
+      url: 'http://f13edd554b30.ngrok.io/log',   // Pass url before log
       headers: {}, 
       data: {
         user:userName,

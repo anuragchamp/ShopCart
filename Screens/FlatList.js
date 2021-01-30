@@ -66,13 +66,16 @@ const FltList = (props) => {
       
    }
   const renderItem = ({ item  , navObj}) => {
-    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
+   
 
     return (
       <Item
         item={item}
         onPress={() => {
-          props.obj.navigate('Browse',{ names: ['Brent', 'Satya', 'Michaś'] });
+          props.obj.navigate('Browse',{ 
+            screen:"Browse",
+            params:{item},
+          });
           setSelectedId(item.id)
         }}
         style={ styles.boxes }

@@ -37,19 +37,8 @@ d.on('error', (err) => {
     console.log(err);
   });
 
-//   app.get("/",function(req,res){
 
-//     res.send("/register.html");
-    
-// });
-
-// app.get("/login",function(req,res){
-
-//     res.send("/login.html");
-// });
-
-
-app.post("/log",function(req , res){
+app.post("/register",function(req , res){
     //console.log(req.body)
     //console.log(req.headers.pass);
     //console.log(req.headers.user);
@@ -72,12 +61,14 @@ app.post("/log",function(req , res){
 
 });
 
-app.post('/login',function(req ,res){
+app.post('/log',function(req ,res){
 
-    const userName = req.body.userName;
-    const password = req.body.password;
+    const userName = req.body.user;
+    const passWord = req.body.pass;
+    // console.log(userName);
+    // console.log(passWord);
 
-    user.findOne({userName : userName} , function (err , foundUser){
+    user.findOne({email : userName} , function (err , foundUser){
 
         if(err)
         {
@@ -87,9 +78,12 @@ app.post('/login',function(req ,res){
         {
             if(foundUser)
             {
-                if(foundUser.password === password)
+                if(foundUser.password === passWord)
                 {
-                    res.sendFile(__dirname + '/secret.html')
+                    console.log('user authenticated');
+                }
+                else{
+                    console.log('user not found');
                 }
             }
         }

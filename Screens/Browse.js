@@ -6,7 +6,7 @@ const Browse = ({route,navigation}) => {
   console.log("route partmt = "+route.params);
   useEffect(() => {
     console.log("test")
-  })                              
+  },[route])                              
  // const { itemId, otherParam } = route.params;
   return (
     <View style={styles.center}>

@@ -1,22 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React ,{useState}from 'react';
 import { Image, StyleSheet, Text, View, TextInput,TouchableOpacity } from 'react-native';
-// import fire from './firbase'
+import axios from 'axios'
 
 export default function Register() {
 
-  // const[email , setemail] =  useState("")
-  // const[password , setPassword] =  useState("")
+  const[email , setEmail] =  useState("")
+  const[passW , setPassW] =  useState("")
 
-  // const handlesignup = () => {
-  //   fire
-  //   .auth()
-  //   .createUserWithEmailAndPassword(email,passsword)
-
-  // };
+  const getNamePass =  () => {
+    console.log(email + " " +passW);
+    axios({
+      method:'post',
+      url: 'http://f13edd554b30.ngrok.io/register',   // Pass url before log
+      headers: {}, 
+      data: {
+        user:email,
+        pass:passW
+      }
+    })
+    }
 
   return (
-    <Form>
     <View style={styles.container}>
       {/* <StatusBar style="auto" /> */}
       <View style={styles.txtcontainerL}>
@@ -27,6 +32,7 @@ export default function Register() {
             style={styles.inputText}
             placeholder="(E.g.: Anurag Chhaperwal)" 
             placeholderTextColor="#fff"
+            
       />
 
       <View style={styles.txtcontainerL}>
@@ -36,6 +42,8 @@ export default function Register() {
             style={styles.inputText}
             placeholder="example@mail.com" 
             placeholderTextColor="#fff"
+            value={email}
+            onChangeText = { email  => setEmail(email)}
       />
 
       <View style={styles.txtcontainerL}>
@@ -46,23 +54,24 @@ export default function Register() {
             secureTextEntry={true}
             placeholder="Enter a Strong Password" 
             placeholderTextColor="#fff"
+            value={passW}
+            onChangeText = { passW  => setPassW(passW)}
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={()=>{console.log("Pressed SignUp!")}}
+        onPress={getNamePass}
       >
         <Text style={styles.txtshadow}>Sign Up</Text>
       </TouchableOpacity>
       <View style={styles.txtcontainerR}>
         <TouchableOpacity
           style={styles.forgotpwdsu}
-          onPress={()=>{console.log("Pressed Sign In!")}}
+          // onPress={getNamePass}
         >
           <Text style={styles.txtshadow}>Already have an account? Sign In</Text>
       </TouchableOpacity>
       </View>
     </View>
-    </Form>
   ); 
 }
 
