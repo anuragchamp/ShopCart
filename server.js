@@ -112,16 +112,16 @@ const prod = prod_conn.model("Products" , product);
 
 ////////////Product operation below /////////
 
-app.get('/admin/add_prod',function(req,res){
+app.post('/add',function(req,res){
 const data = new prod({
-    P_Name:"test",
-    Category:"product category",
+    P_Name:"test2",
+    Category:"bathing",
     Discription:"this is a sample discription 1",
     Price:{1:"30",2:"44",4:"55"},
     AddDate:date = Date.now(),
     AdminId:"admin id",
     stock:"50"
-})
+});
 data.save(function(err){
     if(err){
         console.log(err);
@@ -135,10 +135,41 @@ data.save(function(err){
 
 
 
+app.get('/log',function(req ,res){
+    console.log("ggggggggggggggggggggggggggggggggggggggg");
+    const search = req.body.searchKeyword;
+    prod.find({Category:search} ,function(err ,product){
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log(product);
+        }
+    })
+})
+
+
+
+
+
+
 
 
 app.listen(process.env.PORT || 3000,function(){
     console.log("Server is running");
 })
 
-// google.com
+
+
+//////////////////////////// TO DELETE ALL RECORD COMMAND ////////////////////
+
+
+// app.get('/del',function(req,res){
+//     prod.deleteMany({},function(err){
+//         if(err){
+//             console.log(err);
+//         }
+//     })
+// })
+
+////////////////////////////////////////////////////////////////////////////////////
