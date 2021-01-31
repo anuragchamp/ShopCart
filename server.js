@@ -90,9 +90,48 @@ app.post('/log',function(req ,res){
     });
 });
 
+/////product connection schema/////
 
+let prod_conn = mongoose.createConnection("mongodb+srv://admin_shivam:Test123@cluster0.h5bdc.mongodb.net/Product_test?retryWrites=true&w=majority",{useNewUrlParser:true,
+useUnifiedTopology:true});
 
+const product = new mongoose.Schema({
+    P_Name:String,
+    img: 
+      { data: Buffer, contentType: String },
+    Category:String,
+    Discription:String,
+    Price:Object,
+    AddDate:Date,
+    AdminId:String,
+    stock:Number
+})
+const prod = prod_conn.model("Products" , product);
 
+/////product connection schema/////
+
+////////////Product operation below /////////
+
+app.get('/admin/add_prod',function(req,res){
+const data = new prod({
+    P_Name:"test",
+    Category:"product category",
+    Discription:"this is a sample discription 1",
+    Price:{1:"30",2:"44",4:"55"},
+    AddDate:date = Date.now(),
+    AdminId:"admin id",
+    stock:"50"
+})
+data.save(function(err){
+    if(err){
+        console.log(err);
+    } else {
+        console.log(data)
+        //console.log("done")
+    }
+    res.send(data)
+});
+})
 
 
 
