@@ -137,8 +137,8 @@ data.save(function(err){
 
 app.get('/log',function(req ,res){
     console.log("ggggggggggggggggggggggggggggggggggggggg");
-    const search = req.body.searchKeyword;
-    prod.find({Category:search} ,function(err ,product){
+    //const search = req.body.searchKeyword;
+    prod.find({} ,function(err ,product){
         if(err){
             console.log(err);
         }
@@ -173,3 +173,5 @@ app.listen(process.env.PORT || 3000,function(){
 // })
 
 ////////////////////////////////////////////////////////////////////////////////////
+//Name export 
+

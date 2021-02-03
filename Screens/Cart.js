@@ -3,11 +3,11 @@ import { View, StyleSheet, Text ,Button } from "react-native";
 import { ScreenContainer } from "react-native-screens";
 
 const Cart = ({route , navigation}) => {
-  console.log(route)
+ 
   return (
     <View style={styles.center}>
       <Text>This is the Cart screen {route.name}</Text>
-      <Button title={route.name} onPress= { () => navigation.navigate("Browse", {Text:"gg"})} />
+      <Button title={route.name} onPress= { () => navigation.navigate("Browse")} />
     </View>
   );
 };

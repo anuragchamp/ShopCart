@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
+import axios from 'axios'
 import { ImageBackground,FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
+
+
+
 
 const DATA = [
     {
@@ -60,11 +64,11 @@ const Item = ({ item, onPress, style }) => (
 const FltList = (props) => {
   const [selectedId, setSelectedId] = useState(null);
   const {navObj} = useState(props.obj);
- 
-   function getObj(item){
-    
-      
-   }
+   useEffect(()=>{
+      fetch("http://6200f43011b3.ngrok.io/log")
+      .then( res =>{  console.log(res)});
+   });
+  
   const renderItem = ({ item  , navObj}) => {
    
 

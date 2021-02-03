@@ -3,15 +3,14 @@ import { View, StyleSheet, Text ,Button } from "react-native";
 
 const Browse = ({route,navigation}) => {
   console.log(route);
-  console.log("route partmt = "+route.params);
   useEffect(() => {
-    console.log("test")
+    console.log("test");
   },[route])                              
  // const { itemId, otherParam } = route.params;
   return (
     <View style={styles.center}>
       <Text>This is the Browse screen </Text>
-      <Button title={route.name} onPress= { () => navigation.navigate("Cart", {Text:"gg"})} />
+      <Button title={route.name} onPress= { () => navigation.navigate("Cart")} />
     </View>
   );
 };
