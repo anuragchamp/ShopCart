@@ -132,18 +132,16 @@ data.save(function(err){
     res.send(data)
 });
 })
-
-
-
 app.get('/log',function(req ,res){
     console.log("ggggggggggggggggggggggggggggggggggggggg");
     //const search = req.body.searchKeyword;
-    prod.find({} ,function(err ,product){
+    prod.find({Category:'Pulses'} ,function(err ,product){
         if(err){
             console.log(err);
         }
         else{
             console.log(product);
+            res.send(product);
         }
     })
 })
