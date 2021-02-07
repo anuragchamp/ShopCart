@@ -9,6 +9,7 @@ import { AntDesign } from '@expo/vector-icons';
 import LoginScreen from "../Screens/LoginScreen";
 
 import Register from "../Screens/Register";
+import AddItem from "../Screens/AddItem";
 
 const Stack = createStackNavigator();
 
@@ -78,7 +79,15 @@ const RegisterScreenNavigator = ({route,navigation}) => {
     </Stack.Navigator>
   );
 }
+const AddItemScreenNavigator = ({route,navigation}) => {
+ 
+  return (
+    <Stack.Navigator screenOptions={screenOptionStyle}>
+      <Stack.Screen  name={"AddItem"} component={AddItem}  />
+    </Stack.Navigator>
+  );
+}
 
 
 
-export { MainStackNavigator , LoginScreenNavigator , RegisterScreenNavigator }
+export { MainStackNavigator , LoginScreenNavigator , RegisterScreenNavigator  , AddItemScreenNavigator}

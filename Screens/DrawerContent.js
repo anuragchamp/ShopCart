@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 import MyButton from "./MyButton";
 
 
+
 const Profile = ({navigation , ...props }) => {
   return (
     <View style={{flex : 1,}}>
@@ -22,8 +23,11 @@ const Profile = ({navigation , ...props }) => {
                 </View>
                 <View style={{marginTop:5,}}>
                 <Button icon='map-marker'   onPress={() => navigation.navigate("Register")}>
-          Location
-        </Button>
+                    Location
+                </Button>
+                <Button icon='map-marker'   onPress={() => navigation.navigate("AddItem")}>
+                    Add Item
+                </Button>
                   <MyButton name="Manage Address" icon="map" />
                   <MyButton name="My Account" icon="id-card"/>
                   <MyButton name="My Orders" icon="clipboard-check"/>

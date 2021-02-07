@@ -4,8 +4,8 @@ import { createDrawerNavigator, DrawerItemList, } from "@react-navigation/drawer
 import TabNavigator from "./TabNavigation";
 import  Profile from "../Screens/DrawerContent"
 
-import { LoginScreenNavigator } from "./StackNavigation";
-import { RegisterScreenNavigator } from "./StackNavigation";
+import { LoginScreenNavigator , RegisterScreenNavigator , AddItemScreenNavigator } from "./StackNavigation";
+
 
 
 
@@ -19,6 +19,7 @@ const DrawerNavigator = () => {
      <Drawer.Screen name="Home"  component={TabNavigator}   />
      <Drawer.Screen name="Login"  component={LoginScreenNavigator}   />
      <Drawer.Screen name="Register"  component={RegisterScreenNavigator}   />
+     <Drawer.Screen name="AddItem"  component={AddItemScreenNavigator}   />
     </Drawer.Navigator>
   );
 }
