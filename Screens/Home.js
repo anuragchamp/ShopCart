@@ -9,7 +9,7 @@ const Home = ({navigation}) => {
   const[ product , setProduct] = useState([]);
   const [lenValue , setLenValue] = useState(product.length);
    useEffect(()=>{
-     axios.get(" http://92d05be07397.ngrok.io/log")
+     axios.get("https://50d232d32525.ngrok.io/log")
      .then( res => {  
        setProduct(res.data);
      })
@@ -22,7 +22,7 @@ const Home = ({navigation}) => {
   
   return (
     <View style={styles.center}>
-            <Text>{product.length}</Text>
+          
             {( lenValue > 0) ? product.map( (item) => <FltList key={item._id} obj={item}/>) : <EmptyScreen/>}
     </View>
   );
